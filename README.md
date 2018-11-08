@@ -4,7 +4,7 @@
 
 * Copy the jar ```target/lucene-task-1.0-SNAPSHOT.jar``` to the server's deployment folder, aka ```standalone/deployments```.
 
-The task can be execute with:
+The task can be executed with:
 
 ```java
 import java.util.HashMap;
