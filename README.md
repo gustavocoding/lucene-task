@@ -7,20 +7,25 @@
 The task can be execute with:
 
 ```java
-import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.infinispan.client.hotrod.configuration.Configuration;
 import org.infinispan.client.hotrod.configuration.ConfigurationBuilder;
 
 public class ClientTest {
-   
+
    public static void main(String[] args) {
       Configuration build = new ConfigurationBuilder().build();
       RemoteCacheManager remoteCacheManager = new RemoteCacheManager(build);
 
+      Map<String, Integer> params = new HashMap<>();
+      params.put("maxClauses", 2050);
       RemoteCache<Object, Object> cache = remoteCacheManager.getCache();
-      Object execute = cache.execute("lucene-task", Collections.emptyMap());
+      Object execute = cache.execute("lucene-task", params);
+      
       System.out.println("Result: " + execute);
    }
 }
+
 ```
